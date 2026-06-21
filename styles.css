@@ -403,6 +403,153 @@ p {
   width: fit-content;
 }
 
+.payment {
+  padding: 4rem 0;
+  background-color: #090909;
+}
+
+.payment h3 {
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.payment p {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 2.5rem;
+  color: var(--text-secondary);
+}
+
+.payment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.payment-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.14);
+  border-radius: 16px;
+  padding: 1.75rem;
+  color: var(--text-primary);
+}
+
+.payment-card h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.payment-card p {
+  margin: 0.6rem 0;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.payment-checkout {
+  display: grid;
+  place-items: center;
+}
+
+.checkout-panel {
+  width: 100%;
+  max-width: 640px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(212, 175, 55, 0.16);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.checkout-panel h4 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.checkout-panel label {
+  display: grid;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.checkout-panel input,
+.checkout-panel select {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  background-color: #111;
+  color: var(--text-primary);
+}
+
+.payment-instructions {
+  margin-top: 1.75rem;
+  padding: 1.3rem 1.4rem;
+  border-radius: 12px;
+  background: rgba(212, 175, 55, 0.08);
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.payment-notice {
+  margin-top: 1rem;
+  padding: 1.2rem 1.4rem;
+  border-radius: 12px;
+  background: rgba(44, 62, 80, 0.95);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  color: var(--text-primary);
+  line-height: 1.7;
+}
+
+.hidden {
+  display: none;
+}
+
+.error-card {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.error-page h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(5rem, 10vw, 8rem);
+  color: var(--accent);
+}
+
+.error-page h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--text-primary);
+}
+
+.error-page p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 640px;
+  margin: 0 auto 2rem;
+  line-height: 1.8;
+}
+
+.error-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.error-actions .btn {
+  min-width: 180px;
+}
+
+.redirect-note {
+  margin-top: 1.75rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
 @media (max-width: 900px) {
   .contact-top,
   .contact-body {

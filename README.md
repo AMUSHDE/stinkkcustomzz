@@ -29,13 +29,15 @@ npx http-server -p 8000
 
 ## Deploy to GitHub Pages
 
+This site is published at: `https://amushde.github.io/stinkkcustomzz/`
+
 1. Create a GitHub repository (public) and push the contents:
 ```bash
 git init
 git add .
 git commit -m "Initial site"
 git branch -M main
-git remote add origin https://github.com/<your-username>/stinkk-site.git
+git remote add origin https://github.com/<your-username>/<your-repo>.git
 git push -u origin main
 ```
 2. On GitHub: Settings → Pages → Source: `main` branch, folder `/ (root)`.
@@ -49,6 +51,7 @@ git push -u origin main
 
 - Replace `https://your-site-url/` in `index.html`, `sitemap.xml`, and `robots.txt` with your real URL.
 - Submit the site through Google Search Console to request indexing.
+- A new `404.html` page has been added so GitHub Pages can show a branded fallback for missing links.
 
 ## Note on authentication
 

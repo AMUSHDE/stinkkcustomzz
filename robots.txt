@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /404.html
 
-Sitemap: https://your-site-url/sitemap.xml
+Sitemap: https://amushde.github.io/stinkkcustomzz/sitemap.xml

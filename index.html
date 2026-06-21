@@ -6,12 +6,12 @@
   <title>STINKK CUSTOMZ — Preset</title>
   <meta name="description" content="STINKK CUSTOMZ — Streetwear and curated drops. Shop T-shirts, hoodies, caps and limited collections.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://your-site-url/">
+  <link rel="canonical" href="https://amushde.github.io/stinkkcustomzz/">
   <meta property="og:title" content="STINKK CUSTOMZ — Streetwear & Drops">
   <meta property="og:description" content="SMELL LIKE SUCCESS — curated collections of T-shirts, hoodies and caps.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://your-site-url/">
-  <meta property="og:image" content="https://your-site-url/3.png">
+  <meta property="og:url" content="https://amushde.github.io/stinkkcustomzz/">
+  <meta property="og:image" content="https://amushde.github.io/stinkkcustomzz/3.png">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
@@ -71,6 +71,64 @@
         </article>
 
      
+      </div>
+    </section>
+
+    <section id="payment" class="payment container">
+      <h3>Payment Methods</h3>
+      <p>Choose a secure checkout method and complete your order instantly using Mpesa, bank transfer, or Airtel Money.</p>
+      <div class="payment-grid">
+        <div class="payment-card">
+          <h4>Mpesa</h4>
+          <p>Paybill: <strong>123456</strong></p>
+          <p>Account: <strong>STINKK</strong></p>
+          <p>Use your phone number and enter the order name as reference.</p>
+        </div>
+        <div class="payment-card">
+          <h4>Bank Transfer</h4>
+          <p>Bank: <strong>Kenya Commercial Bank</strong></p>
+          <p>Account: <strong>0012345678</strong></p>
+          <p>Name: <strong>STINKK CUSTOMZ</strong></p>
+        </div>
+        <div class="payment-card">
+          <h4>Airtel Money</h4>
+          <p>Number: <strong>0700 000 000</strong></p>
+          <p>Enter the product name in your payment notes.</p>
+        </div>
+      </div>
+
+      <div class="payment-checkout">
+        <div class="checkout-panel">
+          <h4>Secure checkout</h4>
+          <form id="paymentForm">
+            <label>Product
+              <input type="text" name="product" readonly placeholder="Select a product from the shop">
+            </label>
+            <label>Total Amount
+              <input type="text" name="amount" readonly placeholder="Select a product from the shop">
+            </label>
+            <label>Your Name
+              <input type="text" name="payerName" required>
+            </label>
+            <label>Email
+              <input type="email" name="payerEmail" required>
+            </label>
+            <label>Phone number
+              <input type="tel" name="payerPhone" required placeholder="07XXXXXXXX">
+            </label>
+            <label>Payment method
+              <select name="method" required>
+                <option value="">Choose a method</option>
+                <option value="mpesa">Mpesa</option>
+                <option value="bank">Bank Transfer</option>
+                <option value="airtel">Airtel Money</option>
+              </select>
+            </label>
+            <button class="btn" type="submit">Confirm Payment</button>
+          </form>
+          <div id="paymentInstructions" class="payment-instructions">Choose a payment method to see instructions.</div>
+          <div id="paymentNotice" class="payment-notice hidden"></div>
+        </div>
       </div>
     </section>
 
@@ -139,6 +197,7 @@
 A FUSION OF UNDERGROUND STREETWEAR AND BOLD VISUAL ART.
 BUILT TO STAND OUT, NOT BLEND IN.</p>
         <button class="btn">Add to Cart</button>
+        <button class="btn" id="buyNowBtn" type="button" data-product-name="" data-product-price="">Buy Now</button>
       </div>
     </div>
   </div>
