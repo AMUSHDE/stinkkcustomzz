@@ -48,7 +48,16 @@
       <div class="grid">
         <!-- Product cards -->
         <article class="card" data-name="STAR THEME" data-price="KSH 1200" data-img="5.png">
-          <img src="5.png" alt="BLACK AND GREEN THEME">
+          <div class="slideshow-container">
+            <img class="slide-img" src="5.png" alt="STAR THEME - Image 1">
+            <img class="slide-img" src="6.png" alt="STAR THEME - Image 2" style="display:none;">
+            <button class="slide-btn prev" onclick="changeSlide(this, -1)">❮</button>
+            <button class="slide-btn next" onclick="changeSlide(this, 1)">❯</button>
+            <div class="slide-dots">
+              <span class="dot active" onclick="currentSlide(0, this)"></span>
+              <span class="dot" onclick="currentSlide(1, this)"></span>
+            </div>
+          </div>
           <div class="meta">
             <h4>STAR THEME</h4>
             <p class="price">KSH 1200</p>

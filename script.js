@@ -1,3 +1,37 @@
+// Slideshow functionality
+function changeSlide(btn, direction) {
+  const container = btn.closest('.slideshow-container');
+  const slides = container.querySelectorAll('.slide-img');
+  const dots = container.querySelectorAll('.dot');
+  
+  let currentIndex = 0;
+  slides.forEach((slide, idx) => {
+    if (slide.style.display !== 'none') currentIndex = idx;
+  });
+  
+  currentIndex += direction;
+  if (currentIndex >= slides.length) currentIndex = 0;
+  if (currentIndex < 0) currentIndex = slides.length - 1;
+  
+  showSlide(currentIndex, container);
+}
+
+function currentSlide(index, dotElement) {
+  const container = dotElement.closest('.slideshow-container');
+  showSlide(index, container);
+}
+
+function showSlide(index, container) {
+  const slides = container.querySelectorAll('.slide-img');
+  const dots = container.querySelectorAll('.dot');
+  
+  slides.forEach(slide => slide.style.display = 'none');
+  dots.forEach(dot => dot.classList.remove('active'));
+  
+  slides[index].style.display = 'block';
+  dots[index].classList.add('active');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('productModal');
   const modalImg = document.getElementById('modalImg');
