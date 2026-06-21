@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>STINKK CUSTOMZ — Preset</title>
+  <meta name="description" content="STINKK CUSTOMZ — Streetwear and curated drops. Shop T-shirts, hoodies, caps and limited collections.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://amushde.github.io/stinkkcustomzz/">
+  <meta property="og:title" content="STINKK CUSTOMZ — Streetwear & Drops">
+  <meta property="og:description" content="SMELL LIKE SUCCESS — curated collections of T-shirts, hoodies and caps.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://amushde.github.io/stinkkcustomzz/">
+  <meta property="og:image" content="https://amushde.github.io/stinkkcustomzz/3.png">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">STINKK CUSTOMZ</h1>
+      <nav class="nav">
+        <a href="#collection">Collection</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h2>SMELL LIKE SUCCESS</h2>
+        <h2>BUILT FROM DIRT MADE TO DRIP</h2>
+        <p> CURATED COLLECTION OF T-SHIRTS, HOODIES, AND CAPS—DESIGNED FOR DAILY WEAR AND BOLD EXPRESSION.</p>
+        <a class="btn" href="#collection">Shop Collection</a>
+      </div>
+    </section>
+
+    <section id="collection" class="products container">
+      <h3>CRAFTED PIECES</h3>
+      <div class="grid">
+        <!-- Product cards -->
+        <article class="card" data-name="STAR THEME" data-price="KSH 1200" data-img="5.png">
+          <img src="5.png" alt="BLACK AND GREEN THEME">
+          <div class="meta">
+            <h4>STAR THEME</h4>
+            <p class="price">KSH 1200</p>
+            <button class="btn view">View</button>
+          </div>
+        </article>
+
+        <article class="card" data-name="DUMPSITE THEME" data-price="KSH 1200" data-img="4.png">
+          <img src="4.png" alt="DUMPSITE THEME">
+          <div class="meta">
+            <h4>DUMPSITE THEME</h4>
+            <p class="price">KSH 1200</p>
+            <button class="btn view">View</button>
+          </div>
+        </article>
+ <article class="card" data-name="EAST ULAYA" data-price="KSH 1200" data-img="eastulaya.png">
+          <img src="eastulaya.png" alt="EAST ULAYA">
+          <div class="meta">
+            <h4>EAST ULAYA</h4>
+            <p class="price">KSH 1200</p>
+            <button class="btn view">View</button>
+          </div>
+        </article>
+
+     
+      </div>
+    </section>
+
+    <section id="about" class="about container">
+      <h3>About STINKK CUSTOMZ</h3>
+      <p>STINKK CUSTOMZ IS MORE THAN A CLOTHING BRAND—IT’S A MOVEMENT. BORN FROM THE STREETS AND SHAPED BY HUSTLE, CREATIVITY, AND RAW SELF-EXPRESSION, WE TURN THE OVERLOOKED INTO THE ICONIC. WE DON’T BELIEVE IN FITTING IN; WE BELIEVE IN STANDING OUT. EVERY PIECE IS DESIGNED FOR THOSE WHO CARVE THEIR OWN LANE AND WEAR THEIR STORY WITH PRIDE.</p>
+    </section>
+
+    <section id="contact" class="contact container">
+      <div class="contact-top">
+        <div>
+          <span class="eyebrow">Contact</span>
+          <h3>Get in touch with STINKK CUSTOMZ</h3>
+          <p>QUESTIONS ABOUT DROPS, CUSTOM ORDERS, OR COLLABORATIONS? REACH OUT—WE’LL GET BACK TO YOU QUICKLY.</p>
+        </div>
+        <div class="contact-meta">
+          <div class="contact-card">
+            <strong>Customer Support</strong>
+            <p>support@stinkkcustomz.com</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-body">
+        <div class="contact-details">
+          <div class="contact-card contact-card--large">
+            <strong>ONLINE OPERATIONS</strong>
+            <p>WE DELIVER NATIONWIDE</p>
+          </div>
+          <div class="contact-card contact-card--large">
+            <strong>Follow Us</strong>
+            <p>Instagram: @stinkkcustomz</p>
+            <p>TikTok: @stinkkcustomz</p>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <label>Name
+            <input type="text" name="name" required>
+          </label>
+          <label>Email
+            <input type="email" name="email" required>
+          </label>
+          <label>Message
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <button class="btn" type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© STINKK CUSTOMZ — All rights reserved</div>
+  </footer>
+
+  <!-- Product modal -->
+  <div id="productModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close">×</button>
+      <img id="modalImg" src="" alt="">
+      <div class="modal-info">
+        <h4 id="modalName"></h4>
+        <p id="modalPrice"></p>
+        <p class="modal-desc">MADE FOR THOSE WHO DON’T FOLLOW TRENDS—THEY CREATE THEM.
+A FUSION OF UNDERGROUND STREETWEAR AND BOLD VISUAL ART.
+BUILT TO STAND OUT, NOT BLEND IN.</p>
+        <button class="btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
