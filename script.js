@@ -14,9 +14,43 @@ document.addEventListener('DOMContentLoaded', () => {
   const amountInput = paymentForm ? paymentForm.querySelector('input[name="amount"]') : null;
   const productInput = paymentForm ? paymentForm.querySelector('input[name="product"]') : null;
   const paymentMethod = paymentForm ? paymentForm.querySelector('select[name="method"]') : null;
+  const profileEmpty = document.getElementById('profileEmpty');
+  const profileCard = document.getElementById('profileCard');
+  const avatarPreview = document.getElementById('avatarPreview');
+  const profileDisplayName = document.getElementById('profileDisplayName');
+  const profileUsername = document.getElementById('profileUsername');
+  const profileEmail = document.getElementById('profileEmail');
+  const profileForm = document.getElementById('profileForm');
+
+  const loginEmailInput = document.querySelector('#loginForm input[name="email"]');
+  const lastLoginEmail = localStorage.getItem('stinkkLastEmail');
+  if (loginEmailInput && lastLoginEmail) {
+    loginEmailInput.value = lastLoginEmail;
+  }
 
   const currentUser = getCurrentUser();
   renderUserNav(currentUser);
+  renderProfileSection(currentUser);
+
+  document.body.classList.add('page-loaded');
+
+  function applyPageTransitions() {
+    document.querySelectorAll('a[href]').forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('#') || link.target === '_blank' || href.startsWith('mailto:')) return;
+      const isExternal = href.startsWith('http') && !href.includes(location.host);
+      if (isExternal) return;
+      link.addEventListener('click', event => {
+        const url = link.href;
+        if (url === location.href || href.startsWith('#')) return;
+        event.preventDefault();
+        document.body.classList.add('fade-out');
+        setTimeout(() => window.location.href = url, 250);
+      });
+    });
+  }
+
+  applyPageTransitions();
 
   function updatePaymentInstructions(method) {
     if (!paymentInstructions) return;
@@ -38,6 +72,39 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (paymentForm && paymentForm.querySelector('input[name="payerName"]')) {
       paymentForm.querySelector('input[name="payerName"]').focus();
+    }
+  }
+
+  function renderProfileSection(user) {
+    if (!profileEmpty || !profileCard) return;
+    if (!user) {
+      profileCard.classList.add('hidden');
+      profileEmpty.classList.remove('hidden');
+      return;
+    }
+
+    profileEmpty.classList.add('hidden');
+    profileCard.classList.remove('hidden');
+    const displayName = user.displayName || user.name || user.username || 'Customer';
+    profileDisplayName.textContent = displayName;
+    profileUsername.innerHTML = `Username: <span>${user.username || 'guest'}</span>`;
+    profileEmail.innerHTML = `Email: <span>${user.email || 'not set'}</span>`;
+    avatarPreview.src = user.avatar || 'https://via.placeholder.com/160x160.png?text=Avatar';
+    if (profileForm) {
+      profileForm.querySelector('input[name="displayName"]').value = displayName;
+      profileForm.querySelector('input[name="username"]').value = user.username || '';
+    }
+  }
+
+  function persistUserProfile(updatedUser) {
+    const users = getUsers();
+    const index = users.findIndex(u => u.email === updatedUser.email);
+    if (index !== -1) {
+      users[index] = updatedUser;
+      saveUsers(users);
+      setCurrentUser(updatedUser);
+      renderUserNav(updatedUser);
+      renderProfileSection(updatedUser);
     }
   }
 
@@ -114,22 +181,30 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const formData = new FormData(signupForm);
       const name = (formData.get('name') || '').toString().trim();
+      const username = (formData.get('username') || '').toString().trim().toLowerCase();
       const email = (formData.get('email') || '').toString().trim().toLowerCase();
       const password = (formData.get('password') || '').toString();
 
-      if (!name || !email || !password) {
+      if (!name || !username || !email || !password) {
         alert('Please complete all fields.');
         return;
       }
 
       const users = getUsers();
-      const existing = users.find(u => u.email === email);
+      const existing = users.find(u => u.email === email || u.username === username);
       if (existing) {
-        alert('An account with this email already exists. Please login instead.');
+        alert('An account with this email or username already exists. Please login instead.');
         return;
       }
 
-      const newUser = { name, email, password };
+      const newUser = {
+        name,
+        username,
+        displayName: name,
+        email,
+        password,
+        avatar: ''
+      };
       users.push(newUser);
       saveUsers(users);
       setCurrentUser(newUser);
@@ -149,6 +224,36 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       alert(`Thanks ${greeting}! Your message has been received. We’ll reply shortly.`);
       contactForm.reset();
+    });
+  }
+
+  if (profileForm) {
+    profileForm.addEventListener('submit', e => {
+      e.preventDefault();
+      if (!currentUser) return;
+
+      const displayName = profileForm.querySelector('input[name="displayName"]').value.trim();
+      const username = profileForm.querySelector('input[name="username"]').value.trim().toLowerCase();
+      const avatarFile = profileForm.querySelector('input[name="avatar"]').files[0];
+      if (!displayName || !username) {
+        alert('Please fill in both your display name and username.');
+        return;
+      }
+
+      const updatedUser = { ...currentUser, displayName, username };
+
+      if (avatarFile) {
+        const reader = new FileReader();
+        reader.onload = () => {
+          updatedUser.avatar = reader.result;
+          persistUserProfile(updatedUser);
+          alert('Profile saved successfully.');
+        };
+        reader.readAsDataURL(avatarFile);
+      } else {
+        persistUserProfile(updatedUser);
+        alert('Profile saved successfully.');
+      }
     });
   }
 
@@ -240,7 +345,7 @@ function renderUserNav(user) {
   if (userLink) userLink.remove();
 
   if (user) {
-    const nameLabel = user.name || user.email.split('@')[0];
+    const nameLabel = user.displayName || user.username || user.name || user.email.split('@')[0];
     const profileLink = document.createElement('a');
     profileLink.href = '#user';
     profileLink.textContent = `Hi, ${nameLabel}`;

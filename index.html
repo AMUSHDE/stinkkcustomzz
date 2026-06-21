@@ -132,6 +132,42 @@
       </div>
     </section>
 
+    <section id="user" class="profile container">
+      <h3>My Profile</h3>
+      <div id="profileEmpty" class="profile-empty">
+        <p>You are not signed in yet. Log in or create an account to customize your profile and save a profile picture.</p>
+        <div class="profile-actions">
+          <a class="btn" href="login.html">Login</a>
+          <a class="btn" href="signup.html">Sign Up</a>
+        </div>
+      </div>
+      <div id="profileCard" class="profile-card hidden">
+        <div class="profile-header">
+          <div class="avatar-preview">
+            <img id="avatarPreview" src="https://via.placeholder.com/160x160.png?text=Avatar" alt="Profile avatar">
+          </div>
+          <div class="profile-summary">
+            <h4 id="profileDisplayName">Welcome</h4>
+            <p id="profileUsername">Username: <span>guest</span></p>
+            <p id="profileEmail">Email: <span>not set</span></p>
+          </div>
+        </div>
+        <form id="profileForm" class="profile-form">
+          <label>Display Name
+            <input type="text" name="displayName" required>
+          </label>
+          <label>Username
+            <input type="text" name="username" required>
+          </label>
+          <label>Profile Picture
+            <input type="file" name="avatar" accept="image/*">
+          </label>
+          <button class="btn" type="submit">Save Profile</button>
+        </form>
+        <p class="profile-note">You can update your username and avatar anytime. This is saved locally in your browser.</p>
+      </div>
+    </section>
+
     <section id="about" class="about container">
       <h3>About STINKK CUSTOMZ</h3>
       <p>STINKK CUSTOMZ IS MORE THAN A CLOTHING BRAND—IT’S A MOVEMENT. BORN FROM THE STREETS AND SHAPED BY HUSTLE, CREATIVITY, AND RAW SELF-EXPRESSION, WE TURN THE OVERLOOKED INTO THE ICONIC. WE DON’T BELIEVE IN FITTING IN; WE BELIEVE IN STANDING OUT. EVERY PIECE IS DESIGNED FOR THOSE WHO CARVE THEIR OWN LANE AND WEAR THEIR STORY WITH PRIDE.</p>
