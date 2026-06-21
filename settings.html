@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Premium STINKK CUSTOMZ account settings for orders, payment methods, custom drops and collaboration access.">
+  <link rel="canonical" href="https://AMUSHDE.github.io/stinkkxustomzz/settings.html">
   <title>Settings — STINKK CUSTOMZ</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -18,43 +20,152 @@
     </div>
   </header>
 
-  <main>
-    <section class="settings container">
-      <h3>Account Settings</h3>
-      <div class="settings-grid">
-        <div class="accounts-list">
-          <h4>Accounts</h4>
-          <ul id="accountsList"></ul>
-        </div>
+  <main class="settings-page">
+    <section class="settings-hero container">
+      <div class="hero-copy">
+        <p class="eyebrow">Account Control</p>
+        <h1>Urban luxury settings for your streetwear lifestyle.</h1>
+        <p>Manage your STINKK CUSTOMZ profile, orders, shipping preferences, premium notifications and payment methods from one sleek dashboard.</p>
+      </div>
+      <div class="hero-action">
+        <a class="btn btn-pill" href="#profile-summary">Edit Profile</a>
+      </div>
+    </section>
 
-        <div class="accounts-actions">
-          <h4>Add an account</h4>
-          <form id="addAccountForm" class="auth-form">
-            <label>Name
-              <input type="text" name="name" required>
-            </label>
-            <label>Username
-              <input type="text" name="username" required>
-            </label>
-            <label>Email
-              <input type="email" name="email" required>
-            </label>
-            <label>Password
-              <input type="password" name="password" required>
-            </label>
-            <button class="btn" type="submit">Create Account</button>
-          </form>
-
-          <div class="settings-logout">
-            <button id="settingsLogoutBtn" class="btn">Log out</button>
-          </div>
+    <section class="settings-profile-section container" id="profile-summary">
+      <div class="profile-card">
+        <div class="profile-image">
+          <img id="settingsAvatar" src="https://via.placeholder.com/160x160.png?text=AVATAR" alt="Profile avatar">
         </div>
+        <div class="profile-details">
+          <span class="profile-label">Premium Member</span>
+          <h2 id="settingsUserName">Streetwear Insider</h2>
+          <p id="settingsUserEmail">member@stinkkcustomz.com</p>
+          <p class="profile-status">Exclusive access to drops, custom orders, brand collaborations and fast checkout.</p>
+        </div>
+        <div class="profile-actions">
+          <button class="btn btn-secondary" id="settingsEditProfileBtn">Edit Profile</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="settings-grid container">
+      <article class="settings-card">
+        <h3>ACCOUNT</h3>
+        <p>Personal information, security, and profile control designed for a premium member experience.</p>
+        <ul class="settings-list">
+          <li>Personal Information</li>
+          <li>Email Address</li>
+          <li>Phone Number</li>
+          <li>Change Password</li>
+          <li>Security Settings</li>
+        </ul>
+      </article>
+
+      <article class="settings-card">
+        <h3>ORDERS</h3>
+        <p>Track your latest purchases, manage returns and access all invoices instantly.</p>
+        <ul class="settings-list">
+          <li>Order History</li>
+          <li>Track Orders</li>
+          <li>Returns & Refunds</li>
+          <li>Download Invoices</li>
+        </ul>
+      </article>
+
+      <article class="settings-card">
+        <h3>SHIPPING</h3>
+        <p>Keep delivery details sharp with saved addresses, defaults and custom preferences.</p>
+        <ul class="settings-list">
+          <li>Saved Addresses</li>
+          <li>Default Shipping Address</li>
+          <li>Delivery Preferences</li>
+        </ul>
+      </article>
+
+      <article class="settings-card">
+        <h3>PAYMENT METHODS</h3>
+        <p>Secure payment options for your next drop, including mobile wallets and international cards.</p>
+        <ul class="settings-list">
+          <li>Credit / Debit Cards</li>
+          <li>M-Pesa Integration</li>
+          <li>PayPal</li>
+          <li>Add New Payment Method</li>
+        </ul>
+      </article>
+
+      <article class="settings-card">
+        <h3>WISHLIST</h3>
+        <p>Save your favorite styles and keep recent finds ready for the next launch.</p>
+        <ul class="settings-list">
+          <li>Saved Items</li>
+          <li>Recently Viewed Products</li>
+        </ul>
+      </article>
+
+      <article class="settings-card">
+        <h3>DROP ALERTS</h3>
+        <p>Stay in the loop with new collections, restocks and exclusive member drops.</p>
+        <ul class="settings-list">
+          <li>New Collection Notifications</li>
+          <li>Restock Notifications</li>
+          <li>Exclusive Member Access</li>
+        </ul>
+      </article>
+
+      <article class="settings-card">
+        <h3>CUSTOM ORDERS</h3>
+        <p>Submit creative requests and track every custom fit from concept to delivery.</p>
+        <ul class="settings-list">
+          <li>Submit Custom Design Request</li>
+          <li>Upload Design Files</li>
+          <li>Track Custom Order Status</li>
+        </ul>
+      </article>
+
+      <article class="settings-card">
+        <h3>COLLABORATIONS</h3>
+        <p>Brand partnerships, influencer campaigns and artist collaborations tailored to your style.</p>
+        <ul class="settings-list">
+          <li>Brand Collaboration Requests</li>
+          <li>Influencer Partnerships</li>
+          <li>Artist Collaborations</li>
+        </ul>
+      </article>
+
+      <article class="settings-card">
+        <h3>SUPPORT</h3>
+        <p>Fast support at your fingertips with access to help, FAQs and policy details.</p>
+        <ul class="settings-list">
+          <li>Contact Us</li>
+          <li>FAQ</li>
+          <li>Shipping Policy</li>
+          <li>Return Policy</li>
+        </ul>
+      </article>
+
+      <article class="settings-card">
+        <h3>PREFERENCES</h3>
+        <p>Personalize your shopping experience with display, language and currency settings.</p>
+        <ul class="settings-list">
+          <li>Dark / Light Mode Toggle</li>
+          <li>Language Selection</li>
+          <li>Currency Selection</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="settings-footer container">
+      <div class="settings-actions">
+        <a href="#" class="btn btn-outline">Privacy Policy</a>
+        <a href="#" class="btn btn-outline">Terms & Conditions</a>
+        <button id="settingsLogoutBtn" class="btn btn-ghost">Log Out</button>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">© STINKK CUSTOMZ — All rights reserved</div>
+    <div class="container">© STINKK CUSTOMZ — All rights reserved.</div>
   </footer>
 
   <script src="script.js"></script>
