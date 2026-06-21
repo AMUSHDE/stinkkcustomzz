@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /404.html
 
-Sitemap: https://amushde.github.io/stinkkcustomzz/sitemap.xml
+Sitemap: https://AMUSHDE.github.io/stinkkxustomzz/sitemap.xml

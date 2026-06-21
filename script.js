@@ -172,6 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       setCurrentUser(user);
+      localStorage.setItem('stinkkLastEmail', email);
       location.href = 'index.html';
     });
   }
@@ -256,6 +257,89 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  /* Settings page: manage accounts */
+  const accountsList = document.getElementById('accountsList');
+  const addAccountForm = document.getElementById('addAccountForm');
+  const settingsLogoutBtn = document.getElementById('settingsLogoutBtn');
+
+  function renderAccounts() {
+    if (!accountsList) return;
+    const users = getUsers();
+    accountsList.innerHTML = '';
+    users.forEach(u => {
+      const li = document.createElement('li');
+      li.innerHTML = `<strong>${u.displayName || u.name}</strong> <span>(${u.username || ''})</span> — ${u.email} `;
+      const switchBtn = document.createElement('button');
+      switchBtn.textContent = 'Switch';
+      switchBtn.className = 'btn';
+      switchBtn.style.marginLeft = '0.5rem';
+      switchBtn.addEventListener('click', () => {
+        setCurrentUser(u);
+        alert(`Switched to ${u.displayName || u.username || u.email}`);
+        renderUserNav(u);
+        renderProfileSection(u);
+      });
+
+      const delBtn = document.createElement('button');
+      delBtn.textContent = 'Delete';
+      delBtn.className = 'btn';
+      delBtn.style.marginLeft = '0.5rem';
+      delBtn.addEventListener('click', () => {
+        if (!confirm(`Delete account ${u.email}? This cannot be undone.`)) return;
+        const users = getUsers().filter(x => x.email !== u.email);
+        saveUsers(users);
+        const current = getCurrentUser();
+        if (current && current.email === u.email) {
+          logoutUser();
+        } else {
+          renderAccounts();
+        }
+      });
+
+      li.appendChild(switchBtn);
+      li.appendChild(delBtn);
+      accountsList.appendChild(li);
+    });
+  }
+
+  if (addAccountForm) {
+    addAccountForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const fd = new FormData(addAccountForm);
+      const name = (fd.get('name') || '').toString().trim();
+      const username = (fd.get('username') || '').toString().trim().toLowerCase();
+      const email = (fd.get('email') || '').toString().trim().toLowerCase();
+      const password = (fd.get('password') || '').toString();
+      if (!name || !username || !email || !password) {
+        alert('Please complete all fields.');
+        return;
+      }
+      const users = getUsers();
+      if (users.find(u => u.email === email || u.username === username)) {
+        alert('Account already exists with that email or username.');
+        return;
+      }
+      const newUser = { name, username, displayName: name, email, password, avatar: '' };
+      users.push(newUser);
+      saveUsers(users);
+      setCurrentUser(newUser);
+      localStorage.setItem('stinkkLastEmail', email);
+      alert('Account created and signed in.');
+      addAccountForm.reset();
+      renderAccounts();
+      renderUserNav(newUser);
+      renderProfileSection(newUser);
+    });
+  }
+
+  if (settingsLogoutBtn) {
+    settingsLogoutBtn.addEventListener('click', () => {
+      logoutUser();
+    });
+  }
+
+  renderAccounts();
 
   if (paymentForm) {
     paymentForm.addEventListener('submit', e => {
