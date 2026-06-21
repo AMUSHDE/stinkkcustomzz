@@ -21,6 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const profileUsername = document.getElementById('profileUsername');
   const profileEmail = document.getElementById('profileEmail');
   const profileForm = document.getElementById('profileForm');
+  const checkoutForm = document.getElementById('checkoutForm');
+  const checkoutSummary = document.getElementById('checkoutSummary');
+  const checkoutNotice = document.getElementById('checkoutNotice');
+  const checkoutSection = document.getElementById('checkoutSection');
 
   const loginEmailInput = document.querySelector('#loginForm input[name="email"]');
   const lastLoginEmail = localStorage.getItem('stinkkLastEmail');
@@ -141,10 +145,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (buyNowBtn) {
       buyNowBtn.addEventListener('click', () => {
-        const name = buyNowBtn.dataset.productName || modalName.textContent;
-        const price = buyNowBtn.dataset.productPrice || modalPrice.textContent;
-        setCheckoutProduct(name, price);
-        document.getElementById('payment')?.scrollIntoView({ behavior: 'smooth' });
+        const name = encodeURIComponent(buyNowBtn.dataset.productName || modalName.textContent);
+        const price = encodeURIComponent(buyNowBtn.dataset.productPrice || modalPrice.textContent);
+        window.location.href = `checkout.html?product=${name}&amount=${price}`;
       });
     }
 
@@ -375,6 +378,65 @@ document.addEventListener('DOMContentLoaded', () => {
       if (productInput) productInput.value = '';
       if (amountInput) amountInput.value = '';
       updatePaymentInstructions('');
+    });
+  }
+
+  if (checkoutForm) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const product = urlParams.get('product') || '';
+    const amount = urlParams.get('amount') || '';
+
+    const checkoutProduct = checkoutForm.querySelector('input[name="product"]');
+    const checkoutAmount = checkoutForm.querySelector('input[name="amount"]');
+    const checkoutName = checkoutForm.querySelector('input[name="payerName"]');
+    const checkoutEmail = checkoutForm.querySelector('input[name="payerEmail"]');
+    const checkoutPhone = checkoutForm.querySelector('input[name="payerPhone"]');
+    const checkoutMethod = checkoutForm.querySelector('select[name="method"]');
+
+    if (!product || !amount) {
+      if (checkoutNotice) {
+        checkoutNotice.classList.remove('hidden');
+        checkoutNotice.textContent = 'No product is selected. Please choose a product from the shop first.';
+      }
+      if (checkoutSection) {
+        checkoutSection.classList.add('hidden');
+      }
+    } else {
+      if (checkoutProduct) checkoutProduct.value = decodeURIComponent(product);
+      if (checkoutAmount) checkoutAmount.value = decodeURIComponent(amount);
+      if (checkoutSummary) {
+        checkoutSummary.innerHTML = `
+          <div class="checkout-summary-card">
+            <h4>Order summary</h4>
+            <p><strong>Product:</strong> ${decodeURIComponent(product)}</p>
+            <p><strong>Amount:</strong> ${decodeURIComponent(amount)}</p>
+          </div>
+        `;
+        checkoutSummary.classList.remove('hidden');
+      }
+    }
+
+    checkoutForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const payerName = checkoutName ? checkoutName.value.trim() : '';
+      const payerEmail = checkoutEmail ? checkoutEmail.value.trim() : '';
+      const payerPhone = checkoutPhone ? checkoutPhone.value.trim() : '';
+      const method = checkoutMethod ? checkoutMethod.value : '';
+      const item = checkoutProduct ? checkoutProduct.value.trim() : '';
+      const total = checkoutAmount ? checkoutAmount.value.trim() : '';
+
+      if (!payerName || !payerEmail || !payerPhone || !method) {
+        alert('Please complete all checkout fields and choose a payment method.');
+        return;
+      }
+
+      if (checkoutNotice) {
+        checkoutNotice.classList.remove('hidden');
+        checkoutNotice.textContent = `Secure purchase confirmed: ${item} for ${total} via ${method.toUpperCase()}. Follow the payment instructions to complete your order.`;
+      }
+      checkoutForm.reset();
+      if (checkoutSummary) checkoutSummary.classList.add('hidden');
+      if (checkoutSection) checkoutSection.classList.add('hidden');
     });
   }
 });

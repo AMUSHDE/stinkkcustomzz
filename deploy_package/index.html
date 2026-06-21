@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>STINKK CUSTOMZ — Preset</title>
+  <meta name="description" content="STINKK CUSTOMZ — Streetwear and curated drops. Shop T-shirts, hoodies, caps and limited collections.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://AMUSHDE.github.io/stinkkxustomzz/">
+  <meta property="og:title" content="STINKK CUSTOMZ — Streetwear & Drops">
+  <meta property="og:description" content="SMELL LIKE SUCCESS — curated collections of T-shirts, hoodies and caps.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://AMUSHDE.github.io/stinkkxustomzz/">
+  <meta property="og:image" content="https://AMUSHDE.github.io/stinkkxustomzz/3.png">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">STINKK CUSTOMZ</h1>
+      <nav class="nav">
+        <a href="#collection">Collection</a>
+        <a href="#payment">Payment</a>
+        <a href="settings.html">Settings</a>
+        <a href="#user">Profile</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h2>SMELL LIKE SUCCESS</h2>
+        <h2>BUILT FROM DIRT MADE TO DRIP</h2>
+        <p> CURATED COLLECTION OF T-SHIRTS, HOODIES, AND CAPS—DESIGNED FOR DAILY WEAR AND BOLD EXPRESSION.</p>
+        <a class="btn" href="#collection">Shop Collection</a>
+      </div>
+    </section>
+
+    <section id="collection" class="products container">
+      <h3>CRAFTED PIECES</h3>
+      <div class="grid">
+        <!-- Product cards -->
+        <article class="card" data-name="STAR THEME" data-price="KSH 1200" data-img="5.png">
+          <img src="5.png" alt="BLACK AND GREEN THEME">
+          <div class="meta">
+            <h4>STAR THEME</h4>
+            <p class="price">KSH 1200</p>
+            <button class="btn view">View</button>
+          </div>
+        </article>
+
+        <article class="card" data-name="DUMPSITE THEME" data-price="KSH 1200" data-img="4.png">
+          <img src="4.png" alt="DUMPSITE THEME">
+          <div class="meta">
+            <h4>DUMPSITE THEME</h4>
+            <p class="price">KSH 1200</p>
+            <button class="btn view">View</button>
+          </div>
+        </article>
+ <article class="card" data-name="EAST ULAYA" data-price="KSH 1200" data-img="eastulaya.png">
+          <img src="eastulaya.png" alt="EAST ULAYA">
+          <div class="meta">
+            <h4>EAST ULAYA</h4>
+            <p class="price">KSH 1200</p>
+            <button class="btn view">View</button>
+          </div>
+        </article>
+
+     
+      </div>
+    </section>
+
+    <section id="payment" class="payment container">
+      <h3>Payment Methods</h3>
+      <p>Choose a secure checkout method and complete your order instantly using Mpesa, bank transfer, or Airtel Money.</p>
+      <div class="payment-grid">
+        <div class="payment-card">
+          <h4>Mpesa</h4>
+          <p>Paybill: <strong>123456</strong></p>
+          <p>Account: <strong>STINKK</strong></p>
+          <p>Use your phone number and enter the order name as reference.</p>
+        </div>
+        <div class="payment-card">
+          <h4>Bank Transfer</h4>
+          <p>Bank: <strong>Kenya Commercial Bank</strong></p>
+          <p>Account: <strong>0012345678</strong></p>
+          <p>Name: <strong>STINKK CUSTOMZ</strong></p>
+        </div>
+        <div class="payment-card">
+          <h4>Airtel Money</h4>
+          <p>Number: <strong>0700 000 000</strong></p>
+          <p>Enter the product name in your payment notes.</p>
+        </div>
+      </div>
+
+      <div class="payment-checkout">
+        <div class="checkout-panel">
+          <h4>Secure checkout</h4>
+          <form id="paymentForm">
+            <label>Product
+              <input type="text" name="product" readonly placeholder="Select a product from the shop">
+            </label>
+            <label>Total Amount
+              <input type="text" name="amount" readonly placeholder="Select a product from the shop">
+            </label>
+            <label>Your Name
+              <input type="text" name="payerName" required>
+            </label>
+            <label>Email
+              <input type="email" name="payerEmail" required>
+            </label>
+            <label>Phone number
+              <input type="tel" name="payerPhone" required placeholder="07XXXXXXXX">
+            </label>
+            <label>Payment method
+              <select name="method" required>
+                <option value="">Choose a method</option>
+                <option value="mpesa">Mpesa</option>
+                <option value="bank">Bank Transfer</option>
+                <option value="airtel">Airtel Money</option>
+              </select>
+            </label>
+            <button class="btn" type="submit">Confirm Payment</button>
+          </form>
+          <div id="paymentInstructions" class="payment-instructions">Choose a payment method to see instructions.</div>
+          <div id="paymentNotice" class="payment-notice hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="user" class="profile container">
+      <h3>My Profile</h3>
+      <div id="profileEmpty" class="profile-empty">
+        <p>You are not signed in yet. Log in or create an account to customize your profile and save a profile picture.</p>
+        <div class="profile-actions">
+          <a class="btn" href="login.html">Login</a>
+          <a class="btn" href="signup.html">Sign Up</a>
+        </div>
+      </div>
+      <div id="profileCard" class="profile-card hidden">
+        <div class="profile-header">
+          <div class="avatar-preview">
+            <img id="avatarPreview" src="https://via.placeholder.com/160x160.png?text=Avatar" alt="Profile avatar">
+          </div>
+          <div class="profile-summary">
+            <h4 id="profileDisplayName">Welcome</h4>
+            <p id="profileUsername">Username: <span>guest</span></p>
+            <p id="profileEmail">Email: <span>not set</span></p>
+          </div>
+        </div>
+        <form id="profileForm" class="profile-form">
+          <label>Display Name
+            <input type="text" name="displayName" required>
+          </label>
+          <label>Username
+            <input type="text" name="username" required>
+          </label>
+          <label>Profile Picture
+            <input type="file" name="avatar" accept="image/*">
+          </label>
+          <button class="btn" type="submit">Save Profile</button>
+        </form>
+        <p class="profile-note">You can update your username and avatar anytime. This is saved locally in your browser.</p>
+      </div>
+    </section>
+
+    <section id="about" class="about container">
+      <h3>About STINKK CUSTOMZ</h3>
+      <p>STINKK CUSTOMZ IS MORE THAN A CLOTHING BRAND—IT’S A MOVEMENT. BORN FROM THE STREETS AND SHAPED BY HUSTLE, CREATIVITY, AND RAW SELF-EXPRESSION, WE TURN THE OVERLOOKED INTO THE ICONIC. WE DON’T BELIEVE IN FITTING IN; WE BELIEVE IN STANDING OUT. EVERY PIECE IS DESIGNED FOR THOSE WHO CARVE THEIR OWN LANE AND WEAR THEIR STORY WITH PRIDE.</p>
+    </section>
+
+    <section id="contact" class="contact container">
+      <div class="contact-top">
+        <div>
+          <span class="eyebrow">Contact</span>
+          <h3>Get in touch with STINKK CUSTOMZ</h3>
+          <p>QUESTIONS ABOUT DROPS, CUSTOM ORDERS, OR COLLABORATIONS? REACH OUT—WE’LL GET BACK TO YOU QUICKLY.</p>
+        </div>
+        <div class="contact-meta">
+          <div class="contact-card">
+            <strong>Customer Support</strong>
+            <p>support@stinkkcustomz.com</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-body">
+        <div class="contact-details">
+          <div class="contact-card contact-card--large">
+            <strong>ONLINE OPERATIONS</strong>
+            <p>WE DELIVER NATIONWIDE</p>
+          </div>
+          <div class="contact-card contact-card--large">
+            <strong>Follow Us</strong>
+            <p>Instagram: @stinkkcustomz</p>
+            <p>TikTok: @stinkkcustomz</p>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <label>Name
+            <input type="text" name="name" required>
+          </label>
+          <label>Email
+            <input type="email" name="email" required>
+          </label>
+          <label>Message
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <button class="btn" type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© STINKK CUSTOMZ — All rights reserved</div>
+  </footer>
+
+  <!-- Product modal -->
+  <div id="productModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close">×</button>
+      <img id="modalImg" src="" alt="">
+      <div class="modal-info">
+        <h4 id="modalName"></h4>
+        <p id="modalPrice"></p>
+        <p class="modal-desc">MADE FOR THOSE WHO DON’T FOLLOW TRENDS—THEY CREATE THEM.
+A FUSION OF UNDERGROUND STREETWEAR AND BOLD VISUAL ART.
+BUILT TO STAND OUT, NOT BLEND IN.</p>
+        <button class="btn">Add to Cart</button>
+        <button class="btn" id="buyNowBtn" type="button" data-product-name="" data-product-price="">Buy Now</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

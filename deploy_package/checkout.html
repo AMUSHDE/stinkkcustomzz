@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Complete your secure checkout for STINKK CUSTOMZ products with a safe and easy payment flow.">
+  <link rel="canonical" href="https://AMUSHDE.github.io/stinkkxustomzz/checkout.html">
+  <title>Secure Checkout — STINKK CUSTOMZ</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">STINKK CUSTOMZ</h1>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="settings.html">Settings</a>
+        <a href="login.html">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="checkout-page">
+    <section class="container">
+      <h3>Secure Payout</h3>
+      <p>Complete your payment securely for the selected product. Once you submit, follow the instructions to finalize your order.</p>
+
+      <div id="checkoutNotice" class="payment-notice hidden"></div>
+      <div id="checkoutSummary" class="checkout-summary hidden"></div>
+
+      <div id="checkoutSection" class="checkout-panel">
+        <form id="checkoutForm">
+          <label>Product
+            <input type="text" name="product" readonly>
+          </label>
+          <label>Total Amount
+            <input type="text" name="amount" readonly>
+          </label>
+          <label>Your Name
+            <input type="text" name="payerName" required>
+          </label>
+          <label>Email
+            <input type="email" name="payerEmail" required>
+          </label>
+          <label>Phone number
+            <input type="tel" name="payerPhone" required placeholder="07XXXXXXXX">
+          </label>
+          <label>Payment method
+            <select name="method" required>
+              <option value="">Choose a method</option>
+              <option value="mpesa">Mpesa</option>
+              <option value="bank">Bank Transfer</option>
+              <option value="airtel">Airtel Money</option>
+            </select>
+          </label>
+          <button class="btn" type="submit">Complete Payment</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© STINKK CUSTOMZ — All rights reserved</div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
